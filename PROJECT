@@ -7,4 +7,18 @@ layout:
 - go.kubebuilder.io/v4
 projectName: markdown-view
 repo: github.com/maniizu3110/markdown-view
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: maniizu3110.github.io
+  group: view
+  kind: MarkdownView
+  path: github.com/maniizu3110/markdown-view/api/v1
+  version: v1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
 version: "3"

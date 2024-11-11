@@ -1,8 +1,11 @@
----
+# permissions for end users to edit markdownviews.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: manager-role
+  labels:
+    app.kubernetes.io/name: markdown-view
+    app.kubernetes.io/managed-by: kustomize
+  name: markdownview-editor-role
 rules:
 - apiGroups:
   - view.maniizu3110.github.io
@@ -19,14 +22,6 @@ rules:
 - apiGroups:
   - view.maniizu3110.github.io
   resources:
-  - markdownviews/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - view.maniizu3110.github.io
-  resources:
   - markdownviews/status
   verbs:
   - get
-  - patch
-  - update
